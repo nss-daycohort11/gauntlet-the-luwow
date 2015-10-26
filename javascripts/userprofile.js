@@ -11,7 +11,13 @@ var classIndex = {
 	"thief": Thief,
 	"ninja": Ninja,
 	"assassin": Assassin
-	};
+};
+
+var weaponIndex = {
+	"dagger" : Dagger,
+	"broadsword" : BroadSword,
+	"waraxe": WarAxe
+};
 
 
 var User = function() {
@@ -33,14 +39,21 @@ console.log("uer profile object within click function:", myUser);
 $(".class__link").click(function(e){
 
 	var Pathname = e.currentTarget.childNodes[3].innerHTML;
-	console.log(Pathname, "nth Child");
-
 	myUser.class = new classIndex[Pathname]();
-
 	console.log("what's the class:", myUser.class);
 
 
 });
+
+$(".weapon__link").click(function(e){
+
+	var Pathname = e.currentTarget.childNodes[3].innerHTML;
+	myUser.weapon = new weaponIndex[Pathname]();
+	console.log("what's the weapon:", myUser.weapon);
+
+
+});
+
 
 
 });
