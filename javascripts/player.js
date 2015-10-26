@@ -48,7 +48,7 @@ Player.prototype.generateClass = function() {
   // Composes the corresponding player class into the player object
   this.class = new window[randomClass]();
 
-  // Add the health bonus
+  // Add the health bonuz
   this.health += this.class.healthBonus;
   return this.class;
 };
@@ -83,6 +83,8 @@ var Monster = function() {
 };
 
 Monster.prototype = new Player();
+console.log("playerobj", Player);
+
 
 //new function to gather user input
 
