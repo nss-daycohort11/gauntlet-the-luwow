@@ -22,7 +22,7 @@ body {
   Section styles
  */
 .card { 
-  display: none;
+  /*display: none;*/
 }
 
 .card__prompt {
@@ -102,4 +102,12 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+/*
+STYLING OF ATTACK PAGE
+*/
+
+.card--battleground {
+
 }
