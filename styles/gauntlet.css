@@ -5,6 +5,19 @@ body {
   font-size: 3em;
 }
 
+
+#user-profile{
+  border: 1px solid black;
+  position:fixed;
+  right: 0;
+  height: 400px;
+  width: 150px;
+  text-align: left;
+  padding: 0;
+}
+
+
+
 .field {
   margin: 20px 0 0 0;
 }
@@ -21,9 +34,9 @@ body {
 /*
   Section styles
  */
-/*.card { 
+.card { 
   display: none;
-}*/
+}
 
 .card__prompt {
   font-size: 1.1em;
