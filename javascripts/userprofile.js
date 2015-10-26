@@ -31,7 +31,7 @@ $("#name-submit").click(function(){
 myUser.playerName = $("#player-name").val();
 
 	//User Profile
-	$("#user-profile").append("<p>" + $("#player-name").val() + "</p>");
+	$("#user-name").html("<p>" + $("#player-name").val() + "</p>");
 
 });
 
@@ -41,10 +41,10 @@ $(".class__link").click(function(e){
 
 	var Pathname = e.currentTarget.childNodes[3].innerHTML;
 	myUser.class = new classIndex[Pathname]();
-	console.log("what's the class:", myUser.class);
 
 	//User Profile
-	$("#user-profile").append("<p>" + Pathname + "</p>");
+	$("#current-class").html("<p>" + Pathname + "</p>");
+
 
 });
 
@@ -53,9 +53,9 @@ $(".weapon__link").click(function(e){
 
 	var Pathname = e.currentTarget.childNodes[3].innerHTML;
 	myUser.weapon = new weaponIndex[Pathname]();
-	console.log("what's the weapon:", myUser.weapon);
 
-	$("#user-profile").append("<p>" + Pathname + "</p>");
+	//User Profile
+	$("#current-weapon").html("<p>" + myUser.weapon + "</p>");
 
 });
 
