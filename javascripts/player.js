@@ -86,13 +86,4 @@ Monster.prototype = new Player();
 console.log("playerobj", Player);
 
 
-//new function to gather user input
 
-var userInfo = function() {
-  this.playerName = function () {
-
-    return document.getElementById("player-name").value;
-    console.log(playerName);
-  };
-};
-userInfo.prototype = new Player();
