@@ -3,6 +3,29 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  width: 80%;
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+
+#user-profile{
+  background-color: grey;
+  padding: 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+  position:fixed;
+  right: 0;
+  height: 400px;
+  width: 200px;
+  text-align: right;
+  font-size: .6em;
+  color: white;
+  text-transform: uppercase;
+}
+
+#user-profile > div {
+  margin-bottom: 40px;
 }
 
 .field {
