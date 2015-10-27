@@ -84,3 +84,37 @@ var Monster = function() {
 
 Monster.prototype = new Player();
 
+/*
+Create empty profile for user responses to populate.
+*/
+
+
+$("#player-name-submit").click(function() {
+  
+})
+
+var User = function() {
+this.toString = function() {
+    var output = [this.playerName,
+      ": a ",
+      this.skinColor,
+      " skinned ",
+      this.species,
+      " ",
+      this.class,
+      " with ",
+      this.health,
+      " health. ",
+      (this.class.magical) ? "Able to cast " : " Wielding a ",
+      this.weapon.toString(),
+      "!"
+    ].join("");
+    return output;
+  };
+}
+User.prototype = new Human();
+
+console.log("user object", User);
+
+
+
