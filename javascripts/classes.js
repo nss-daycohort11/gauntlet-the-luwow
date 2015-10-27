@@ -120,7 +120,7 @@ Sorcerer.prototype = new Mage();
  */
 
 var Thief = function() {
-  this.name = "Wizard";
+  this.name = "Thief";
   this.healthBonus = this.healthBonus - 15;
   this.strengthBonus = this.strengthBonus - 25;
   this.intelligenceBonus = this.intelligenceBonus + 40;
@@ -129,7 +129,7 @@ Thief.prototype = new Fighter();
 
 
 var Ninja = function() {
-  this.name = "Conjurer";
+  this.name = "Ninja";
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 10;
 };
@@ -137,7 +137,7 @@ Ninja.prototype = new Fighter();
 
 
 var Assassin = function() {
-  this.name = "Sorcerer";
+  this.name = "Assassin";
   this.healthBonus = this.healthBonus - 5;
   this.strengthBonus = this.strengthBonus - 20;
   this.intelligenceBonus = this.intelligenceBonus + 30;
