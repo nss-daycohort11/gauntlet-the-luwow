@@ -31,7 +31,7 @@ $("#name-submit").click(function(){
 myUser.playerName = $("#player-name").val();
 
 	//User Profile
-	$("#user-name").html("<p>" + $("#player-name").val() + "</p>");
+	$("#user-name").html($("#player-name").val());
 
 });
 
@@ -43,7 +43,7 @@ $(".class__link").click(function(e){
 	myUser.class = new classIndex[Pathname]();
 
 	//User Profile
-	$("#current-class").html("<p>" + Pathname + "</p>");
+	$("#current-class").html(Pathname);
 
 
 });

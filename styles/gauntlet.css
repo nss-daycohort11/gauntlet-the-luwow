@@ -28,6 +28,27 @@ body {
   margin-bottom: 40px;
 }
 
+/* Monster profile */
+#monster-profile{
+  background-color: forestgreen;
+  padding: 15px;
+  margin-left: 10px;
+  border-radius: 5px;
+  position:fixed;
+  left: 0;
+  height: 400px;
+  width: 200px;
+  text-align: left;
+  font-size: .6em;
+  color: white;
+  text-transform: uppercase;
+}
+
+#monster-profile > div {
+  margin-bottom: 40px;
+}
+
+
 .field {
   margin: 20px 0 0 0;
 }

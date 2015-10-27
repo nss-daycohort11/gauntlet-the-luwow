@@ -3,7 +3,7 @@ $(document).ready(function() {
   /*
     Test code to generate a human player and an orc player
    */
-  var warrior = new Human();
+/*  var warrior = new Human();
   warrior.setWeapon(new WarAxe());
   warrior.generateClass();  // This will be used for "Surprise me" option
   console.log(warrior.toString());
@@ -12,13 +12,13 @@ $(document).ready(function() {
   orc.generateClass();
   orc.setWeapon(new BroadSword());
   console.log(orc.toString());
-
+*/
   /*
     Test code to generate a spell
    */
-  var spell = new Sphere();
+/*  var spell = new Sphere();
   console.log("spell: ", spell.toString());
-
+*/
 
   /*
     END OF TEST CODE
@@ -61,5 +61,15 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
+
+
+
+// Create fight
+// Fight resolution
+// How do the childNodes work, why 3?
+// UserProfiles shouldn't move on without selecting a class, weapon, etc
+
+
+
 
 });
