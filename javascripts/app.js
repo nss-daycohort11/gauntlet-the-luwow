@@ -51,10 +51,8 @@ var victory;
         moveAlong = ($("#player-name").val() !== "");
         console.log("moveAlong", moveAlong);
         break;
-      case "card--results":
-        moveAlong = (victory === true);
-        console.log("moveAlong", moveAlong);
-        break;
+
+    
     }
 
     if (moveAlong) {
@@ -85,6 +83,7 @@ var classIndex = {
   "thief": Thief,
   "ninja": Ninja,
   "assassin": Assassin
+
 };
 
 var weaponIndex = {
@@ -114,7 +113,35 @@ myUser.playerName = $("#player-name").val();
 $(".class__link").click(function(e){
 
   var Pathname = e.currentTarget.childNodes[3].innerHTML;
-  myUser.class = new classIndex[Pathname]();
+  // this.class = new classIndex[Pathname]();
+  if (Pathname === "surprise me") {
+
+    var Surprise = function() {
+      this.surpriseClass = function() {
+    this.health = this.health + 20;
+    this.species = "Human";
+    this.allowedClasses = ["warrior", "berserker", "ninja"];
+    // Get a random index from the allowed classes array
+    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
+    // Get the string at the index
+    var randomClass = this.allowedClasses[random];
+
+    // Composes the corresponding player class into the player object
+    this.class = new window[randomClass]();
+    console.log("this.class", this.class)
+    
+    return this.class;
+
+  };
+};
+
+  };
+
+
+
+// this.class = new classIndex[Pathname]();
+  
 
   //User Profile
   $("#current-class").html(Pathname);
@@ -200,6 +227,10 @@ var attack = function () {
     myOrc.health = myOrc.health - ((myUser.strength/10) + myUser.weapon.damage);
     myUser.health = myUser.health - ((myOrc.strength/10) + myOrc.weapon.damage);
     console.log("user health", myUser.health, "orc strength", myOrc.strength, "orc weapon damage", myOrc.weapon.damage);
+    
+    $("#health-meter").html("Health: " + myUser.health);
+    $("#monster-health").html("Health: " + myOrc.health);
+
     if(myOrc.health <=0) {
       if(myUser.health <= 0) {
         $(".card--battleground").hide();
@@ -226,6 +257,12 @@ var attack = function () {
 };
 
 
+$("#attack").hide();
+$("#enter-battle").click(function() {
+    $("#attack").show();
+    $("#health-meter").html("Health: " + myUser.health);
+    $("#monster-health").html("Health: " + myOrc.health);
+});
 
 $("#attack").click(attack);
   
@@ -238,6 +275,11 @@ $("#start-over").click(function() {
   $("#current-weapon").html("");
 
   $(".card--results").append(" ");
+  $("#attack").hide();
+
+  $("#health-meter").html(" ");
+    $("#monster-health").html(" ");
+
 
   myUser = new User();
   myUser.generateClass();
