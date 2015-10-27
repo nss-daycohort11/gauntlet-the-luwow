@@ -147,3 +147,13 @@ body {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
 }
+
+
+#start-over {
+  font-size: 3em;
+  color: red;
+}
+
+#start-over #user-profile {
+  display: none;
+}

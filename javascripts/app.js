@@ -31,6 +31,9 @@ $(document).ready(function() {
     When any button with card__link class is clicked,
     move on to the next view.
    */
+
+var victory;
+
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
@@ -38,12 +41,19 @@ $(document).ready(function() {
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
+        console.log("moveAlong", moveAlong);
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
+        console.log("moveAlong", moveAlong);
         break;
       case "card--battleground":
         moveAlong = ($("#player-name").val() !== "");
+        console.log("moveAlong", moveAlong);
+        break;
+      case "card--results":
+        moveAlong = (victory === true);
+        console.log("moveAlong", moveAlong);
         break;
     }
 
@@ -180,32 +190,60 @@ console.log("info on orc", myOrc, orcClass, orcWeapon);
 // User hits attack button
 //    my User attacks
 
+console.log("user health before attack", myUser.health);
+
 var attack = function () {
 /*  console.log("userAttack stuff", myOrc, myUser);
   console.log("userAttack specifics", myUser.health, myUser.strength, myUser.weapon.damage);
   console.log("myOrc specifics", myOrc.health, myOrc.strength, myOrc.weapon.damage);*/
-  
-  myOrc.health = myOrc.health - ((myUser.strength/10) + myUser.weapon.damage);
-  myUser.health = myUser.health - ((myOrc.strength/10) + myOrc.weapon.damage);
-  console.log("afterfight", myOrc.health, "afteruser", myUser.health);
+
+    myOrc.health = myOrc.health - ((myUser.strength/10) + myUser.weapon.damage);
+    myUser.health = myUser.health - ((myOrc.strength/10) + myOrc.weapon.damage);
+    console.log("user health", myUser.health, "orc strength", myOrc.strength, "orc weapon damage", myOrc.weapon.damage);
     if(myOrc.health <=0) {
-      console.log("Orc dies.");
+      if(myUser.health <= 0) {
+        $(".card--battleground").hide();
+        // $("#user-profile").hide();
+        $("#start-over").html("<div>You're both dead.</div><div>Fight again.</div>");
+        $(".card--results").show();
+      } else {
+        $(".card--battleground").hide();
+        // $("#user-profile").hide();
+        $("#start-over").html("<div>Orc is dead.</div><div>Fight again.</div>");
+        $(".card--results").show();
+      } 
     }
     if (myUser.health <=0) {
-      console.log("You enter the happy nothing.");
+      $(".card--battleground").hide();
+      // $("#user-profile").hide();
+      $("#start-over").html("<div>You are dead.</div><div>Fight again.</div>");
+      $(".card--results").show();
     }
+
+  console.log("orc health:", myOrc.health, "user health:", myUser.health);
 
   // myOrc.health = myOrc.health - (myUser.strength/10) + myUser.weapon.damage;
 };
 
 
+
 $("#attack").click(attack);
   
+// User starts game over, all strengths and health restored
 
+$("#start-over").click(function() {
 
+  $("#user-name").html("");
+  $("#current-class").html("");
+  $("#current-weapon").html("");
 
-//    myOrc attacks
+  $(".card--results").append(" ");
 
+  myUser = new User();
+  myUser.generateClass();
+  myOrc = new Orc();
+  myOrc.setWeapon();
+});
 
 
 // Create fight
