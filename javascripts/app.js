@@ -32,7 +32,7 @@ $(document).ready(function() {
     move on to the next view.
    */
 
-var victory;
+
 
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
@@ -103,8 +103,11 @@ $("#name-submit").click(function(){
 
 myUser.playerName = $("#player-name").val();
 
+
   //User Profile
   $("#user-name").html($("#player-name").val());
+
+
 
 });
 
@@ -234,19 +237,19 @@ var attack = function () {
     if(myOrc.health <=0) {
       if(myUser.health <= 0) {
         $(".card--battleground").hide();
-        // $("#user-profile").hide();
+        $("#user-profile").hide();
         $("#start-over").html("<div>You're both dead.</div><div>Fight again.</div>");
         $(".card--results").show();
       } else {
         $(".card--battleground").hide();
-        // $("#user-profile").hide();
+        $("#user-profile").hide();
         $("#start-over").html("<div>Orc is dead.</div><div>Fight again.</div>");
         $(".card--results").show();
       } 
     }
     if (myUser.health <=0) {
       $(".card--battleground").hide();
-      // $("#user-profile").hide();
+      $("#user-profile").hide();
       $("#start-over").html("<div>You are dead.</div><div>Fight again.</div>");
       $(".card--results").show();
     }
@@ -278,8 +281,8 @@ $("#start-over").click(function() {
   $("#attack").hide();
 
   $("#health-meter").html(" ");
-    $("#monster-health").html(" ");
-
+  $("#monster-health").html(" ");
+  $("#player-name").val("");
 
   myUser = new User();
   myUser.generateClass();
